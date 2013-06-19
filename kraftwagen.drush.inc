@@ -94,6 +94,23 @@ function kraftwagen_drush_command() {
     'description' => dt('Attempts to create an empty environment, defaulting to \'production\', for a Kraftwagen project.'),
   );
 
+  $items['kw-env-info'] = array(
+    'hidden' => TRUE,
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,
+    'description' => dt('Prints some info about the kw env'),
+    // TODO: Actually implement this.
+    'options' => array(
+      'name' => dt('print just the name and exit'),
+    ),
+    'outputformat' => array(
+      'default' => 'key-value',
+      'pipe-format' => 'string',
+      'label' => 'Kraftwagen Environment Info',
+      'require-engine-capability' => array('format-single'),
+    ),
+    'aliases' => array('kw-ei'),
+  );
+
   $items['kw-setup-settings'] = array(
     'hidden' => TRUE,
     'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,

@@ -68,7 +68,9 @@ function kraftwagen_build_determine_target($root) {
       $suffix += 1;
     } while (is_dir($target_dir));
 
-    return $target_dir;
+    $relative_parts = array_diff(explode('/', $target_dir), explode('/', $root));
+    $target_dir_relative = implode('/', $relative_parts);
+    return $target_dir_relative;
   }
 
   // If directory build is not a link
